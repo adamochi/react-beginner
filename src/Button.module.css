@@ -1,4 +1,22 @@
 .btn {
-  background-color: tomato;
-  color: white;
+  position: fixed;
+  color: rgb(0, 122, 122);
+  background-color: rgba(255, 139, 197, 0);
+  border: 1px solid skyblue;
+  border-radius: 5px;
+  width: 100px;
+  height: 30px;
+  font-size: 20px;
+  box-shadow: 0px 2px 0px 0px rgb(41, 192, 129);
+}
+.btn:hover {
+  color: rgb(0, 168, 168);
+  transition: 0.02s;
+  box-shadow: 0px 2px 5px 0px rgb(41, 192, 129);
+}
+
+.btn:active {
+  color: rgb(0, 206, 206);
+  transform: scale(98%);
+  box-shadow: 0px 2px 10px 0px rgb(41, 192, 129);
 }
