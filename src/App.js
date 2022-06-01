@@ -1,4 +1,64 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+function App() {
+  const [amount, setAmount] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [coins, setCoins] = useState([]);
+
+  const onChange = (event) => {
+    setAmount(event.target.value);
+  };
+  useEffect(() => {
+    fetch("https://api.coinpaprika.com/v1/tickers?limit=1000")
+      .then((response) => response.json())
+      .then((json) => {
+        setCoins(json);
+        setLoading(false);
+      });
+  }, []);
+  return (
+    <div>
+      <h1>All The Coins! {loading ? "" : `(${coins.length})`}</h1>
+      <label htmlFor="current">Current Crypto Prices </label>
+      {loading ? (
+        <strong>Loading...</strong>
+      ) : (
+        <select id="current">
+          {coins.map((coin) => (
+            <option>
+              {coin.name} ({coin.symbol}) ${coin.quotes.USD.price.toFixed(2)}{" "}
+              USD
+            </option>
+          ))}
+        </select>
+      )}
+
+      <h2>How many coins can you buy?</h2>
+      <form>
+        <input
+          onChange={onChange}
+          type={"number"}
+          placeholder="enter USD$..."
+        ></input>
+        <h3>with ${amount} you can buy..</h3>
+      </form>
+      {loading ? (
+        <strong></strong>
+      ) : (
+        <select>
+          {coins.map((coin) => (
+            <option>
+              {coin.name} ({coin.symbol}) $
+              {(amount / coin.quotes.USD.price).toFixed(2)}
+            </option>
+          ))}
+        </select>
+      )}
+    </div>
+  );
+}
+export default App;
+/*
 import styles from "./App.module.css";
 
 function App() {
@@ -27,8 +87,7 @@ function App() {
     </form>
   );
 }
-
-export default App;
+*/
 /*
 import Button from "./Button";
 import styles from "./App.module.css";
