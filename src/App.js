@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import styles from "./App.module.css";
 
 function App() {
   const [amount, setAmount] = useState(0);
@@ -17,30 +18,34 @@ function App() {
       });
   }, []);
   return (
-    <div>
-      <h1>All The Coins! {loading ? "" : `(${coins.length})`}</h1>
-      <label htmlFor="current">Current Crypto Prices </label>
-      {loading ? (
-        <strong>Loading...</strong>
-      ) : (
-        <select id="current">
-          {coins.map((coin) => (
-            <option>
-              {coin.name} ({coin.symbol}) ${coin.quotes.USD.price.toFixed(2)}{" "}
-              USD
-            </option>
-          ))}
-        </select>
-      )}
-
-      <h2>How many coins can you buy?</h2>
+    <div className={styles.coin_party}>
+      <h1 className={styles.title}>
+        All The Coins! {loading ? "" : `(${coins.length})`}
+      </h1>
+      <div>
+        <label htmlFor="current">Current Crypto Prices </label>
+        {loading ? (
+          <strong>Loading...</strong>
+        ) : (
+          <select id="current">
+            {coins.map((coin) => (
+              <option>
+                {coin.name} ({coin.symbol}) ${coin.quotes.USD.price.toFixed(2)}{" "}
+                USD
+              </option>
+            ))}
+          </select>
+        )}
+      </div>
+      <h2 className={styles.heading_style_1}>How many coins can you buy?</h2>
       <form>
         <input
+          className={styles.inputs}
           onChange={onChange}
           type={"number"}
-          placeholder="enter USD$..."
+          placeholder="enter USD $..."
         ></input>
-        <h3>with ${amount} you can buy..</h3>
+        <h3>with ${amount} you can buy. . .</h3>
       </form>
       {loading ? (
         <strong></strong>
