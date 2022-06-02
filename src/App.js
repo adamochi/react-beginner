@@ -22,7 +22,7 @@ function App() {
 }
 
 export default App;
-
+// npm i react-router-dom@5.3.0
 // react router allows us to navigate pages npm install react-router-dom
 // routes are screens. we will have a home route for the movie list,
 // when we use a map, react js makes us give a key to the elements
