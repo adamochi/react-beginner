@@ -1,3 +1,13 @@
+function App() {
+  return null;
+}
+
+export default App;
+
+// react router allows us to navigate pages npm install react-router-dom
+// routes are screens. we will have a home route for the movie list,
+// when we use a map, react js makes us give a key to the elements
+/*
 import { useEffect, useState } from "react";
 
 function App() {
@@ -7,17 +17,30 @@ function App() {
     fetch("https://www.omdbapi.com/?i=tt3896198&apikey=401a796f")
       .then((response) => response.json())
       .then((json) => {
-        console.log(json);
-        // setMovies(json);
-        // setLoading(false);
+        setMovies(json);
+        setLoading(false);
       });
   }, []);
-  console.log(movies);
-  return <div>{loading ? <h1>Loading. . .</h1> : null}</div>;
+  return (
+    <div>
+      {loading ? (
+        <h1>Loading...</h1>
+      ) : (
+        <main>
+          <h1>{movies.Title}</h1>
+          <h2>imdb Rating: {movies.imdbRating}</h2>
+          <h4>imdb ID: {movies.imdbID}</h4>
+          <p>{movies.Plot}</p>
+          <div>
+            <img src="https://m.media-amazon.com/images/M/MV5BNjM0NTc0NzItM2FlYS00YzEwLWE0YmUtNTA2ZWIzODc2OTgxXkEyXkFqcGdeQXVyNTgwNzIyNzg@._V1_SX300.jpg" />
+          </div>
+          <div>{movies.Poster}</div>
+        </main>
+      )}
+    </div>
+  );
 }
-
-export default App;
-// when we use a map, react js makes us give a key to the elements
+*/
 /*
 import { useEffect, useState } from "react";
 import style from "./App.module.css";
