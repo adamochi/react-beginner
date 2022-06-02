@@ -24,15 +24,13 @@ body {
   font-size: 40px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.644);
   text-align: center;
+  color: rgb(44, 136, 197);
 }
 .heading_style_1 {
-  color: rgb(88, 88, 88);
+  color: rgb(66, 66, 66);
 }
-form {
-  display: flex;
-  flex-direction: column;
-}
-form .inputs {
+
+.inputs {
   border: none;
   border-bottom: 1px solid rgb(2, 175, 255);
   text-align: center;
@@ -41,5 +39,8 @@ form .inputs {
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.3);
 }
 .inputs:focus-within {
-  text-decoration: none;
+  transform: scale(200%);
+}
+.inputs::placeholder {
+  color: rgb(194, 102, 247);
 }

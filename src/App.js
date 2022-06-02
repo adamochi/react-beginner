@@ -1,4 +1,85 @@
 import { useEffect, useState } from "react";
+
+function App() {
+  const [loading, setLoading] = useState(true); // first one is the data, 2nd is the function that will modify the data
+  const [movies, setMovies] = useState([]);
+  useEffect(() => {
+    fetch("https://www.omdbapi.com/?i=tt3896198&apikey=401a796f")
+      .then((response) => response.json())
+      .then((json) => {
+        console.log(json);
+        // setMovies(json);
+        // setLoading(false);
+      });
+  }, []);
+  console.log(movies);
+  return <div>{loading ? <h1>Loading. . .</h1> : null}</div>;
+}
+
+export default App;
+// when we use a map, react js makes us give a key to the elements
+/*
+import { useEffect, useState } from "react";
+import style from "./App.module.css";
+
+function App() {
+  const [coins, setCoins] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [amount, setAmount] = useState(0);
+  const onChange = (event) => {
+    setAmount(event.target.value);
+  };
+  useEffect(() => {
+    fetch("https://api.coinpaprika.com/v1/tickers")
+      .then((response) => response.json())
+      .then((json) => {
+        setCoins(json); // to show our data, we put it on the state
+        setLoading(false);
+      });
+  }, []);
+  return (
+    <div className={style.coin_party}>
+      <h1 className={style.title}>All the Coins! ({coins.length})</h1>
+      {loading ? (
+        <strong>Loading. . .</strong>
+      ) : (
+        <select>
+          {coins.map((potato) => (
+            <option>
+              {potato.name} ({potato.symbol}) $
+              {potato.quotes.USD.price.toFixed(2)} USD
+            </option> // the potato value in this case means each potato inside of the coins array
+          ))}
+        </select>
+      )}
+      <h2 className={style.heading_style_1}>How many coins can you buy. . .</h2>
+      <input
+        className={style.inputs}
+        type={"number"}
+        placeholder="enter USD. . ."
+        onChange={onChange}
+      ></input>
+      <h4 className={style.heading_style_1}>
+        With ${amount} USD, you can buy. . .
+      </h4>
+      {loading ? (
+        <strong>Loading. . .</strong>
+      ) : (
+        <select>
+          {coins.map((potato) => (
+            <option>
+              {potato.name} ({potato.symbol}) $
+              {(amount / potato.quotes.USD.price).toFixed(2)}
+            </option> // the potato value in this case means each potato inside of the coins array
+          ))}
+        </select>
+      )}
+    </div>
+  );
+}
+*/
+/*
+import { useEffect, useState } from "react";
 import styles from "./App.module.css";
 
 function App() {
@@ -62,7 +143,7 @@ function App() {
     </div>
   );
 }
-export default App;
+*/
 /*
 import styles from "./App.module.css";
 
