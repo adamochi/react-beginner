@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
 import Detail from "./routes/Detail";
 import Home from "./routes/Home";
 
@@ -7,7 +6,7 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/hello">
+        <Route path="/abot-us">
           <h1>Hello</h1>
         </Route>
         <Route path="/movie/:id">
@@ -22,6 +21,7 @@ function App() {
 }
 
 export default App;
+
 // npm i react-router-dom@5.3.0
 // react router allows us to navigate pages npm install react-router-dom
 // routes are screens. we will have a home route for the movie list,
