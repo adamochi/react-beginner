@@ -60,7 +60,7 @@ function App() {
     </div>
   );
 }
-
+export default App;
 // npm i react-router-dom@5.3.0
 // react router allows us to navigate pages npm install react-router-dom
 // routes are screens. we will have a home route for the movie list,
