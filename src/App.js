@@ -1,6 +1,6 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Detail from "./routes/Detail";
-import Home from "./routes/Home";
+// import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+// import Detail from "./routes/Detail";
+// import Home from "./routes/Home";
 
 import { useEffect, useState } from "react";
 import style from "./App.module.css";
@@ -61,6 +61,7 @@ function App() {
   );
 }
 export default App;
+
 // npm i react-router-dom@5.3.0
 // react router allows us to navigate pages npm install react-router-dom
 // routes are screens. we will have a home route for the movie list,
